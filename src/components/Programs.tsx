@@ -14,9 +14,9 @@ import { useTheme } from "@mui/material/styles";
 import CodeIcon from "@mui/icons-material/Code";
 import DevicesIcon from "@mui/icons-material/Devices";
 import SettingsIcon from "@mui/icons-material/Settings";
-import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturing";
 import ElectricalServicesIcon from "@mui/icons-material/ElectricalServices";
 import { motion, useInView } from "framer-motion";
+import { DriveEtaRounded } from "@mui/icons-material";
 
 const MotionGrid = motion.create(Grid);
 
@@ -71,16 +71,12 @@ const programs = [
     color: "#f44336",
   },
   {
-    icon: <PrecisionManufacturingIcon fontSize="large" />,
-    title: "Tehničar mehatronike",
+    icon: <DriveEtaRounded fontSize="large" />,
+    title: "Saobraćajni tehničar",
     description:
-      "Integracija mašinstva, elektronike i IT-a za kontrolu automatizovanih sistema.",
+      "Obrazovanje u oblasti saobraćajnosti, mehatroničarstva i robotike.",
     duration: "4 godine",
-    opportunities: [
-      "Mehatroničar",
-      "Tehničar automatike",
-      "Operater robotskih sistema",
-    ],
+    opportunities: ["Saobraćajni tehničar"],
     color: "#ff9800",
   },
 ];

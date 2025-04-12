@@ -14,6 +14,7 @@ import HistoryEduIcon from "@mui/icons-material/HistoryEdu";
 import GroupsIcon from "@mui/icons-material/Groups";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import { motion, useInView } from "framer-motion";
+import tehnickaSkola from "../assets/images/tehnicka-skola-np-2.webp";
 
 const MotionGrid = motion.create(Grid);
 const MotionCard = motion.create(Card);
@@ -124,7 +125,7 @@ const About = () => {
           <Grid size={{ xs: 12, md: 6 }}>
             <Box
               component="img"
-              src="/images/school-building.jpg"
+              src={tehnickaSkola}
               alt="Zgrada škole"
               sx={{
                 width: "100%",

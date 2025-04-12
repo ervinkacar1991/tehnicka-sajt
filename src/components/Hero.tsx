@@ -11,8 +11,8 @@ import { useTheme } from "@mui/material/styles";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { HashLink } from "react-router-hash-link";
 import { motion, useInView, useAnimation } from "framer-motion";
-import bgImage from "../assets/images/premium_photo-1682787494765-44d02d12f5be.avif";
-import bgImage2 from "../assets/images/istockphoto-1919863292-612x612.webp";
+import bgImage from "../assets/images/photo-1517245386807-bb43f82c33c4.avif";
+import bgImage2 from "../assets/images/premium_photo-1682146029185-198922bd8350.avif";
 
 const MotionBox = motion.create(Box);
 const MotionTypography = motion.create(Typography);
@@ -40,7 +40,7 @@ const Hero = () => {
         maxWidth: "100%",
         display: "flex",
         alignItems: "center",
-        background: `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.7)), url(${bgImage})`,
+        background: `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.7)), url(${bgImage2})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         color: "white",

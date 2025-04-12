@@ -97,7 +97,7 @@ const Footer = () => {
                 "Elektrotehničar računara",
                 "Elektrotehničar energetike",
                 "Mašinski tehničar",
-                "Tehničar mehatronike",
+                "Saobraćaj",
               ].map((text) => (
                 <Box component="li" key={text} sx={{ mb: 1 }}>
                   <Link
