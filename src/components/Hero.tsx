@@ -11,7 +11,7 @@ import { useTheme } from "@mui/material/styles";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { HashLink } from "react-router-hash-link";
 import { motion, useInView, useAnimation } from "framer-motion";
-import bgImage from "../assets/images/photo-1517245386807-bb43f82c33c4.avif";
+import bgImage from "../assets/images/istockphoto-2160850981-612x612.webp";
 import bgImage2 from "../assets/images/premium_photo-1682145181120-73cfdfc8a36d.avif";
 
 const MotionBox = motion.create(Box);

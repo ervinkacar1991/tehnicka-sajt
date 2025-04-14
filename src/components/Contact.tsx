@@ -16,7 +16,6 @@ import EmailIcon from "@mui/icons-material/Email";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import { motion, useInView } from "framer-motion";
 
-// const MotionBox = motion.create(Box);
 const MotionGrid = motion.create(Grid);
 
 const Contact = () => {
@@ -52,7 +51,7 @@ const Contact = () => {
         />
       ),
       title: "Adresa",
-      details: "Ulica Školska 10, 36300 Novi Pazar",
+      details: "Vuka Karadžica, 36300 Novi Pazar",
     },
     {
       icon: (

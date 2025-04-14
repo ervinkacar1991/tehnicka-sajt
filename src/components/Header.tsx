@@ -13,8 +13,11 @@ import {
   ListItemText,
   useScrollTrigger,
   Slide,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 import SchoolIcon from "@mui/icons-material/School";
 import { HashLink } from "react-router-hash-link";
 
@@ -30,26 +33,20 @@ function HideOnScroll(props: any) {
 }
 
 const Header = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const handleScroll = () => {
-    const offset = window.scrollY;
-    if (offset > 50) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
-  };
+  const handleScroll = () => setScrolled(window.scrollY > 50);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleDrawer = (open: any) => (event: any) => {
+  const toggleDrawer = (open: boolean) => (event: any) => {
     if (
       event.type === "keydown" &&
       (event.key === "Tab" || event.key === "Shift")
@@ -67,13 +64,17 @@ const Header = () => {
     { label: "Kontakt", href: "#contact" },
   ];
 
-  const smoothScrollTo = (id: any) => {
+  const smoothScrollTo = (id: string) => {
     setDrawerOpen(false);
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const schoolName = isMobile
+    ? 'TŠ "IZUDIN SUŠEVIĆ"'
+    : 'TEHNIČKA ŠKOLA "IZUDIN SUŠEVIĆ"';
 
   return (
     <HideOnScroll>
@@ -112,11 +113,10 @@ const Header = () => {
                   fontSize: { xs: "1rem", md: "1.2rem" },
                 }}
               >
-                TEHNIČKA ŠKOLA "IZUDIN SUŠEVIĆ"
+                {schoolName}
               </Typography>
             </Box>
 
-            {/* Desktop menu */}
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
               {menuItems.map((item) => (
                 <Button
@@ -137,7 +137,6 @@ const Header = () => {
               ))}
             </Box>
 
-            {/* Mobile menu icon */}
             <IconButton
               size="large"
               edge="end"
@@ -151,29 +150,63 @@ const Header = () => {
             >
               <MenuIcon />
             </IconButton>
-
-            {/* Mobile drawer */}
-            <Drawer
-              anchor="right"
-              open={drawerOpen}
-              onClose={toggleDrawer(false)}
-            >
-              <Box sx={{ width: 250 }} role="presentation">
-                <List>
-                  {menuItems.map((item) => (
-                    <ListItem
-                      component="button"
-                      key={item.label}
-                      onClick={() => smoothScrollTo(item.href.substring(1))}
-                    >
-                      <ListItemText primary={item.label} />
-                    </ListItem>
-                  ))}
-                </List>
-              </Box>
-            </Drawer>
           </Toolbar>
         </Container>
+
+        {/* Mobile drawer */}
+        <Drawer
+          anchor="right"
+          open={drawerOpen}
+          onClose={toggleDrawer(false)}
+          PaperProps={{
+            sx: {
+              width: 250,
+              backgroundColor: "#fafafa", 
+              borderLeft: "1px solid #ccc",
+            },
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-end",
+              p: 1,
+              borderBottom: "1px solid #ccc",
+            }}
+          >
+            <IconButton onClick={toggleDrawer(false)}>
+              <CloseIcon />
+            </IconButton>
+          </Box>
+
+          <List sx={{ p: 1 }}>
+            {menuItems.map((item) => (
+              <ListItem
+                key={item.label}
+                component="button"
+                onClick={() => smoothScrollTo(item.href.substring(1))}
+                sx={{
+                  textAlign: "center",
+                  justifyContent: "center",
+                  my: 1,
+                  borderRadius: 1,
+                  "&:hover": {
+                    backgroundColor: "action.hover",
+                  },
+                }}
+              >
+                <ListItemText
+                  primary={item.label}
+                  primaryTypographyProps={{
+                    fontSize: "1rem",
+                    fontWeight: 500,
+                  }}
+                />
+              </ListItem>
+            ))}
+          </List>
+        </Drawer>
       </AppBar>
     </HideOnScroll>
   );

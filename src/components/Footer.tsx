@@ -118,7 +118,7 @@ const Footer = () => {
               Kontakt
             </Typography>
             <Typography variant="body2" paragraph sx={{ mb: 1 }}>
-              Ulica Školska 10, 36300 Novi Pazar
+             Vuka Karadžica 10, 36300 Novi Pazar
             </Typography>
             <Typography variant="body2" paragraph sx={{ mb: 1 }}>
               Telefon: +381 20 123 456
