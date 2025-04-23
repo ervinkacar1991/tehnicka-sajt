@@ -91,7 +91,7 @@ const Hero = () => {
                 }}
               >
                 Tehničku školu{" "}
-                <span className="text-gradient">"Izudin Sušević"</span>
+                <span className="text-gradient">"Izudin Šušević"</span>
               </MotionTypography>
 
               <MotionTypography

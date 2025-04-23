@@ -74,7 +74,7 @@ const Header = () => {
 
   const schoolName = isMobile
     ? 'TŠ "IZUDIN SUŠEVIĆ"'
-    : 'TEHNIČKA ŠKOLA "IZUDIN SUŠEVIĆ"';
+    : 'TEHNIČKA ŠKOLA "IZUDIN ŠUŠEVIĆ"';
 
   return (
     <HideOnScroll>
@@ -161,7 +161,7 @@ const Header = () => {
           PaperProps={{
             sx: {
               width: 250,
-              backgroundColor: "#fafafa", 
+              backgroundColor: "#fafafa",
               borderLeft: "1px solid #ccc",
             },
           }}
